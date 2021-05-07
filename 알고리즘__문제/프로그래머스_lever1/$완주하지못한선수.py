@@ -1,8 +1,8 @@
-def solution(participant, completion):
-    for i in participant:
-        if i not in completion:
-            answer = i
-            return answer
+# def solution(participant, completion):
+#     for i in participant:
+#         if i not in completion:
+#             answer = i
+#             return answer
 
 
 # ''' counter함수를 사용하면 객체끼리 뺄셈가능
@@ -16,7 +16,7 @@ def solution(participant, completion):
     # print(answer) # Counter({'vinko': 1})
     # print(answer.keys()) # dict_keys(['vinko'])
     # print(list(answer.keys())) # ['vinko']
-    return list(answer.keys())[0] # vinko
+    return list(answer.keys())[0]  # vinko
 # '''
 
 
