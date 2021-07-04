@@ -5,18 +5,16 @@ def solution(n, arr1, arr2):
 
     # 이진수 변환
     for i in range(len(arr1)):
-        arr1[i] = bin(arr1[i])[2:]  # 2진수 변환 함수 bin()
+        arr1[i] = bin(arr1[i])[2:]  # 2진수 변환 함수 bin(), 앞에 0b 제거를 위한 슬라이싱
         arr2[i] = bin(arr2[i])[2:]
-        # arr1[i] = arr1[i]  # 이진수 앞에 0b 제거를 위한 슬라이싱
-        # arr2[i] = arr2[i]
 
-        sum_Arr1NArr2.append(int(arr1[i]) + int(arr2[i]))  # 두개의 지도 합치기
+        # 두개의 지도 합치기 => 합치지 않고 따로 구할 수도 있음!
+        sum_Arr1NArr2.append(int(arr1[i]) + int(arr2[i]))
         sum_Arr1NArr2[i] = str(sum_Arr1NArr2[i]).zfill(n)  # 부족한 0 채우기
 
-    # map 숫자를 기호로 변경 비밀지도 완성하기
+    # map 숫자를 기호로 변경해서 비밀지도 완성하기
     for i in range(len(arr1)):
         for j in range(len(arr1)):
-            # print(str(sum_Arr1NArr2[i])[j:j+1])
             # 지도 각 칸의 숫자의 합이 1 또는 2면 벽인 #
             if str(sum_Arr1NArr2[i])[j:j+1] == '2' or str(sum_Arr1NArr2[i])[j:j+1] == '1':
                 ele += '#'
