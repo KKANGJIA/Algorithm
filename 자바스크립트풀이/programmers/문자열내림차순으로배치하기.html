@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        
+        let s = "Zbcdefg";
+        console.log(s.split('').sort((prev, cur) => cur.charCodeAt() - prev.charCodeAt()).join(''));
+        // localeCompare는 여기서 못 씁니다. 대문자가 소문자보다 뒤에 위치해야 해서요.
+        // split, sort(또는 map) join(또는 reduce)으로 이어지는 메서드입니다. split-apply-combine 기법이라고도 불리는 3단 콤보
+        // charCodeAt은 문자의 숫자코드를 알려주는 메서드입니다. 이걸 사용해서 정렬하면 됩니다. 대소문자 정렬에서 localeCompare과 다른 결과를 보여줍니다.
+    </script>
+</body>
+</html>
