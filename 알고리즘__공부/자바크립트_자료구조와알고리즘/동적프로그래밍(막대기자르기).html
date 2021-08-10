@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var p = [0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30];
+        function cutRod(p, n) {
+            var r = [0];
+            
+            for (var j = 1; j <= n; j++) {
+                q = -1;
+                for (var i = 1; i <= j; i++) {
+                q = Math.max(q, p[i] + r[j - i]);
+                //console.log(q, 'Ri') 각 길이의 최대가격
+                }
+                r[j] = q;
+                //console.log(r[j], 'Rn'); //길이의 최대가격
+                //console.log(r, 'Rn'); // 최대가격을 저장하는 배열
+            }
+            return r[n];
+            
+        }
+        cutRod(p, 2); // 5
+        cutRod(p, 3); // 8
+        cutRod(p, 4); // 10
+        cutRod(p, 7); // 18
+        //console.log(cutRod(p, 10)); // 30
+    </script>
+</body>
+</html>

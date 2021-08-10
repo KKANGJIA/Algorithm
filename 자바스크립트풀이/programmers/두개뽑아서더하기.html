@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function solution(numbers) {
+            const sum = [];
+            for(let i = 0; i < numbers.length; i++){
+                for(let j = i+1; j < numbers.length; j++){
+                    sum.push(numbers[i]+numbers[j]);
+                }    
+            }
+            const numSort = sum.sort((a,b)=> a-b);
+            return numSort.filter((v,i) => v !== numSort[i+1]);
+        }
+    </script>
+</body>
+</html>
+
+<!-- 
+    function solution(numbers) {
+        const temp = []
+
+        for (let i = 0; i < numbers.length; i++) {
+            for (let j = i + 1; j < numbers.length; j++) {
+                temp.push(numbers[i] + numbers[j])
+            }
+        }
+        // new Set(answer) // Set(5) {1, 2, 3, 4, 5}
+        const answer = [...new Set(temp)] // (5) [1, 2, 3, 4, 5]
+        return answer.sort((a, b) => a - b)
+    }
+ -->
+
+ <!-- 
+    function solution(numbers) {
+        return [...new Set(numbers.reduce((ac,v,i,ar)=>[...ac,...ar.slice(i+1).map(v_=>v_+v)],[]))].sort((a,b)=>a-b);
+    }
+  -->
+
+
+  <!-- 
+
+    const temp = []
+    for (let i = 0; i < numbers.length; i++) {
+        for (let j = i + 1; j < numbers.length; j++) {
+            temp.push(numbers[i] + numbers[j])
+        }
+    }
+
+    numbers.reduce((ac,v,i,ar)=>[...ac,...ar.slice(i+1).map(v_=>v_+v)],[])
+
+    reduce를 사용해 배열을 하나 초기화 하고, 배열에 기존 numbers 배열을 나타내는 인수인 ar에 현재 가리키고 있는 값의 뒷부분들을 slice(i+1)로 잘라 배열을 만들고 해당 배열을 map을 사용하여 현재 가리키고 있던 값을 모든 요소에 더해준 뒤 reduce에 더해주는 배열에 추가해줍니다.
+   -->
