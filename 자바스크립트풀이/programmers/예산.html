@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    function solution(d, budget) {
+      let answer = 0; //부서의 개수
+      let arrSort  = d.sort((a,b)=>a - b);
+      let sum = 0; // 예산의 총액
+      let i; //반복문 밖에서 사용하기 위해서 전역 선언
+      
+      for(i=0; i < arrSort.length; i++){
+        sum += arrSort[i]; //더한다
+        if(sum>budget){ 
+          answer = i;
+          break; //커지면 반복문 종료
+        } else if (sum===budget){ //같으면
+          answer = i+1; // index + 1 = length
+          break; //반복문 종료
+        }
+      }
+      if(i===arrSort.length){ //총 예산이 모든 부서의 예산의 총합과 같은 경우(테케 통과를 위한 경우)
+        answer = arrSort.length;
+      }
+      return answer;
+    }
+    solution([1,3,2,5,4], 9)
+  </script>
+</body>
+</html>
+
+<!-- 
+//다른 분의 풀이
+function solution(d, budget) {
+  d.sort((a, b) => a - b);
+  while (d.reduce((a, b) => (a + b), 0) > budget) {
+    d.pop();
+  }
+  return d.length;
+}
+-->
